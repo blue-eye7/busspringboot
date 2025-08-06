@@ -100,7 +100,7 @@ public class BusService {
 		List<Bus> b=busrepo.getBusByRoute(boarding,destination);
 		List<Availability> matchedAvailability = b.stream()
 			    .flatMap(bus -> bus.getAvailability().stream()) // Flatten all Availability lists
-			    .filter(a -> a.getAvailable_date().isEqual(journey_date)) // Keep only matching dates
+			    .filter(a -> a.getAvailable_date().isEqual(journey_date))
 			    .collect(Collectors.toList());
 		System.out.println(matchedAvailability);
 		
