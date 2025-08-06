@@ -99,7 +99,7 @@ public class BusService {
 	public List<Availability> getbuss(String boarding, String destination, LocalDate journey_date) {
 		List<Bus> b=busrepo.getBusByRoute(boarding,destination);
 		List<Availability> matchedAvailability = b.stream()
-			    .flatMap(bus -> bus.getAvailability().stream()) // Flatten all Availability lists
+			    .flatMap(bus -> bus.getAvailability().stream()) 
 			    .filter(a -> a.getAvailable_date().isEqual(journey_date))
 			    .collect(Collectors.toList());
 		System.out.println(matchedAvailability);
